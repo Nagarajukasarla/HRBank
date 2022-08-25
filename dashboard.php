@@ -1,43 +1,46 @@
 <?php
-    include_once "connection.php";
+include_once "connection.php";
 
-    session_start();
-    $id = $_SESSION['id'];
-    $email = $_SESSION['email'];
-    $username = $_SESSION['username'];
-    $firstName = $_SESSION['firstname'];
-    $accountNumber = $_SESSION['accountNumber'];
+session_start();
+$id = $_SESSION['id'];
+$email = $_SESSION['email'];
+$username = $_SESSION['username'];
+$firstName = $_SESSION['firstname'];
+$lastName = $_SESSION['lastname'];
+$accountNumber = $_SESSION['accountNumber'];
 
-    $sql = "SELECT Balance FROM user_info WHERE Id = $id";
+$sql = "SELECT Balance FROM user_info WHERE Id = $id";
 
-    $balanceRes = mysqli_query($conn, $sql);
-    $balance = NULL;
+$balanceRes = mysqli_query($conn, $sql);
+$balance = NULL;
 
-    $balance = mysqli_fetch_column($balanceRes);    // Works on 8 and above versions of php
+$balance = mysqli_fetch_column($balanceRes);    // Works on 8 and above versions of php
 
-    // ------------------ For version below 8 ---------------
-    // while ($row = mysqli_fetch_array($balanceRes)) {
-    //     $balance = $row[0];
-    // }
-    // ------------------ For version below 8 ---------------
+// ------------------ For version below 8 ---------------
+// while ($row = mysqli_fetch_array($balanceRes)) {
+//     $balance = $row[0];
+// }
+// ------------------ For version below 8 ---------------
 
 ?>
 
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
-<meta charset='UTF-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>HRBank</title>
-<!-- <link rel='stylesheet' href='style1.css'> -->
-<link rel='stylesheet' href='assests/Dashboard/style.css'>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>HRBank</title>
+    <!-- <link rel='stylesheet' href='style1.css'> -->
+    <link rel='stylesheet' href='assests/Dashboard/style.css'>
 </head>
+
 <body>
 
     <!-- !!!!!!!!!!! Main dashboard starts here !!!!!!!!!!!!!-->
 
-    <div class='dash-wrap' style='display: block';>
+    <div class='dash-wrap' style='display: block' ;>
         <div class='dash-header'>
             <div class='bank-logo'>
                 <p>HRBank</p>
@@ -51,7 +54,7 @@
             <img id='close-profile' src='Img/close.png' alt='close' width='20px' height='20px'>
             <p>100</p>
             <?php echo "<p>$firstName</p>"; ?>
-            <?php echo "<p>$accountNumber</p>";?>
+            <?php echo "<p>$accountNumber</p>"; ?>
             <?php echo "<p>$email</p>"; ?>
             <button>Manage Profile</button>
         </div>
@@ -166,4 +169,5 @@
     </div>
 </body>
 <script src='assests/Dashboard/main.js'></script>
+
 </html>

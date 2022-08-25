@@ -24,7 +24,7 @@
     $ConfirmPassword = $_POST["Confirm-password"];
     $Gender = filter_input(INPUT_POST, "Gender", FILTER_VALIDATE_INT);
     $Age = filter_input(INPUT_POST, "Age", FILTER_VALIDATE_INT);
-    $AccountNumber = rand(999999, 9999999);
+    $AccountNumber = rand(9999999, 99999999);
 
     $sql = "INSERT INTO user_info (Firstname, Lastname, Username, Email, Password, ConfirmPassword, Gender, Age, AccountNumber)
             VALUES ('$Firstname', '$Lastname', '$Username', '$Email', '$Password', '$ConfirmPassword', $Gender, $Age, $AccountNumber)";
@@ -34,5 +34,3 @@
     if ($result) {
         header("Location: login/index.html");
     }
-    
-?>

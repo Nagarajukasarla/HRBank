@@ -1,13 +1,14 @@
 <?php
 
-    include_once "connection.php";
+include_once "connection.php";
 
-    session_start();
-    $id = $_SESSION['id'];
-    $email = $_SESSION['email'];
-    $username = $_SESSION['username'];
-    $firstName = $_SESSION['firstname'];
-    $accountNumber = $_SESSION['accountNumber'];
+session_start();
+$id = $_SESSION['id'];
+$email = $_SESSION['email'];
+$username = $_SESSION['username'];
+$firstName = $_SESSION['firstname'];
+$accountNumber = $_SESSION['accountNumber'];
+$lastName = $_SESSION['lastname'];
 
 ?>
 
@@ -15,6 +16,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +24,7 @@
     <title>Fund Transfering</title>
     <link rel="stylesheet" href="assests/FundTransfer/style.css">
 </head>
+
 <body>
     <div class="header">
         <div class="bank-logo">
@@ -100,11 +103,11 @@
                 <div class="receive-details">
                     <div class="my-account-number" style="display: flex;">
                         <p>Account Number : </p>
-                        <?php echo "<span id='my-acc'>90999805990</span>"; ?>
+                        <?php echo "<span id='my-acc'>$accountNumber</span>"; ?>
                     </div>
                     <div class="my-full-name" style="display: flex;">
                         <p>Full Name : </p>
-                        <span id="my-name">Naga Raju</span>
+                        <?php echo "<span id='my-name'>$firstName  $lastName</span>"; ?>
                     </div>
                 </div>
             </div>
@@ -112,4 +115,5 @@
     </div>
 </body>
 <script src="assests/FundTransfer/main.js"></script>
+
 </html>
