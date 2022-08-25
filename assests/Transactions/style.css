@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Montserrat:wght@300;400&family=Nunito+Sans:wght@400;600;700&family=Work+Sans:wght@300;400&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body a, a:hover, a:visited, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    background: #f6f6f6;
+}
+.header {
+    background: #060b95;
+    padding: 20px auto;
+    height: 85px;
+    user-select: none;
+    display: flex;
+    z-index: -1;
+}
+.header .bank-logo {
+    margin-left: 50px;
+    margin-top: 25px;
+}
+.header .bank-logo p {
+    font-family: Nunito Sans;
+    font-size: 22px;
+    color: #FFFFFF;
+}
+.header .user-profile {
+    z-index: 2;
+    position: absolute;
+    right: 122px;
+    top: 10px;
+    color: #FFFFFF;
+    font-family: Work Sans;
+}
+.header .user-profile img {
+    cursor: pointer;
+}
+.header .user-profile p {
+    /* display: none; */
+    margin-left: -15px;
+}
+.floating-profile {
+    display: none;
+    justify-content: center;
+    text-align: center;
+    font-family: Josefin Sans;
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    top: 8px;
+    right: 22px;
+    background-color: #FFFFFF;
+    box-shadow: 3px 4px 10px #888787, -3px -4px 10px #888787;
+    border-radius: 10px;
+}
+.floating-profile img {
+    margin-left: 215px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.floating-profile p:nth-of-type(1) {
+    font-weight: 600;
+    font-size: 30px;
+    color: #12729E;
+    margin-top: 50px;
+    margin-left: 0;
+}
+.floating-profile p:nth-of-type(2) {
+    margin-top: 10px;
+    font-size: 20px;
+}
+.floating-profile  p:nth-of-type(3) {
+    margin-top: 10px;
+    font-size: 19px;
+}
+.floating-profile  p:nth-of-type(4) {
+    margin-top: 10px;
+    font-size: 18px;
+}
+.floating-profile button {
+    margin-top: 20px;
+    width: 135px;
+    padding: 8px;
+    background-color: royalblue;
+    border: 2px solid royalblue;
+    color: #FFFFFF;
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .6px;
+    border-radius: 5px;
+    transition: .2s;
+}
+.floating-profile button:active {
+    background-color: #FFFFFF;
+    color: royalblue;
+}
+.side-menu {
+    user-select: none;
+    background-color: #FFFFFF;
+    width: 270px;
+    color: #000000;
+    height: calc(100vh - 85px);
+    box-shadow: 1px 4px 20px #888787;
+}
+.side-menu p {
+    font-family: Nunito Sans;
+    font-size: 20px;
+    letter-spacing: .5px;
+}
+.transactions {
+    background-color: #DCDCDC;
+}
+.side-menu  div {
+    padding: 30px 0 30px 30px;
+    cursor: pointer;
+}
+.side-menu  div  img:nth-of-type(1) {
+    margin-right: 20px;
+}
+.side-menu .overview img:nth-of-type(2) {
+    margin: 5px 0 0 50px;
+}
+.side-menu .transactions img:nth-of-type(2) {
+    margin: 5px 0 0 20px;
+}
+.side-menu .fund-transfer img:nth-of-type(2) {
+    margin: 5px 0 0 10px;
+}
+.side-menu .loans img:nth-of-type(2) {
+    margin: 5px 0 0 80px;
+}
+.side-menu .add-money img:nth-of-type(2) {
+    margin: 5px 0 0 30px;
+}
+.main-area {
+    display: flex;
+}
+.transaction-list {
+    background-color: #FFFFFF;
+    margin: 20px 0 0 40px;
+    width: 1010px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 20px #888787, -3px -3px 20px #FFFFFF;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.transaction-list p {
+    margin-top: 25px;
+    margin-left: 35px;
+    margin-bottom: 12px;
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: .4px;
+}
+.transaction-list table {
+    position: relative;
+    border-collapse: collapse;
+    width: 1010px;
+}
+.transaction-list table thead {
+    height: 40px;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px #888787, 0 2px 5px #FFFFFF;
+}
+.transaction-list table tbody {
+    overflow: hidden;
+}
+.transaction-list table tbody tr {
+    font-family: Work Sans;
+    position: relative;
+    height: 46px;
+    box-shadow: 0 2px 5px #888787, 0 2px 5px #FFFFFF;
+}
+.transaction-list table tbody td {
+    padding: 10px 53px;
+}

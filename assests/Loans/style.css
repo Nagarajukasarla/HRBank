@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Montserrat:wght@300;400&family=Nunito+Sans:wght@400;600;700&family=Work+Sans:wght@300;400&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body a, a:hover, a:visited, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    background: #f6f6f6;
+}
+.header {
+    background: #060b95;
+    padding: 20px auto;
+    height: 85px;
+    user-select: none;
+    display: flex;
+    z-index: -1;
+}
+.header .bank-logo {
+    margin-left: 50px;
+    margin-top: 25px;
+}
+.header .bank-logo p {
+    font-family: Nunito Sans;
+    font-size: 22px;
+    color: #FFFFFF;
+}
+.header .user-profile {
+    z-index: 2;
+    position: absolute;
+    right: 122px;
+    top: 10px;
+    color: #FFFFFF;
+    font-family: Work Sans;
+}
+.header .user-profile img {
+    cursor: pointer;
+}
+.header .user-profile p {
+    /* display: none; */
+    margin-left: -15px;
+    cursor: pointer;
+}
+.floating-profile {
+    display: none;
+    font-family: Josefin Sans;
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    top: 8px;
+    right: 22px;
+    background-color: #FFFFFF;
+    box-shadow: 3px 4px 10px #888787, -3px -4px 10px #888787;
+    border-radius: 10px;
+}
+.floating-profile img {
+    margin-left: 215px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.floating-profile p:nth-of-type(1) {
+    font-weight: 600;
+    font-size: 30px;
+    color: #12729E;
+    margin-top: 50px;
+    margin-left: 102px;
+}
+.floating-profile p:nth-of-type(2) {
+    margin: 10px 0 0 80px;
+    font-size: 20px;
+}
+.floating-profile  p:nth-of-type(3) {
+    margin: 10px 0 0 70px;
+    font-size: 19px;
+}
+.floating-profile  p:nth-of-type(4) {
+    margin: 10px 0 0 36px;
+    font-size: 18px;
+}
+.floating-profile button {
+    margin: 35px 0 0 60px;
+    width: 135px;
+    padding: 8px;
+    background-color: royalblue;
+    border: 2px solid royalblue;
+    color: #FFFFFF;
+    font-family: Nunito Sans;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .6px;
+    border-radius: 5px;
+    transition: .2s;
+}
+.floating-profile button:active {
+    background-color: #FFFFFF;
+    color: royalblue;
+}
+.side-menu {
+    user-select: none;
+    background-color: #FFFFFF;
+    width: 270px;
+    color: #000000;
+    height: calc(100vh - 85px);
+    box-shadow: 1px 4px 20px #888787;
+}
+.side-menu p {
+    font-family: Nunito Sans;
+    font-size: 20px;
+    letter-spacing: .5px;
+}
+.loans {
+    background-color: #DCDCDC;
+}
+.side-menu  div {
+    padding: 30px 0 30px 30px;
+    cursor: pointer;
+}
+.side-menu  div  img:nth-of-type(1) {
+    margin-right: 20px;
+}
+.side-menu .overview img:nth-of-type(2) {
+    margin: 5px 0 0 50px;
+}
+.side-menu .transactions img:nth-of-type(2) {
+    margin: 5px 0 0 20px;
+}
+.side-menu .fund-transfer img:nth-of-type(2) {
+    margin: 5px 0 0 10px;
+}
+.side-menu .loans img:nth-of-type(2) {
+    margin: 5px 0 0 80px;
+}
+.side-menu .add-money img:nth-of-type(2) {
+    margin: 5px 0 0 30px;
+}
+.main-area {
+    display: flex;
+}
+.main-area .loan-amount-bars {
+    display: flex;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+.loan-amount-bars img {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.loan-amount-bars .home-loan, .bike-loan, .gold-loan, .education-loan {
+    user-select: none;
+    font-family: Nunito Sans;
+    font-size: 18px;
+    margin-left: 30px;
+    width: 260px;
+    height: 65px;
+    background-color: transparent;
+    color: #15191d;
+    border-radius: 20px;
+    box-shadow: 2px 3px 6px #888787, -2px -3px 6px #888787;
+}
+.loan-amount-bars .home-loan p:nth-of-type(1), .bike-loan p:nth-of-type(1), .gold-loan p:nth-of-type(1), .education-loan p:nth-of-type(1) {
+    margin-top: -40px;
+    text-align: center;
+}
+.loan-amount-bars .home-loan p:nth-of-type(2), .bike-loan p:nth-of-type(2), .gold-loan p:nth-of-type(2), .education-loan p:nth-of-type(2) {
+    text-align: center;
+    margin-top: 4px;
+}
+.main-area .loan-form {
+    position: absolute;
+    margin-top: 160px;
+    margin-left: 650px;
+}
+.main-area .loan-form select {
+    font-family: Nunito Sans;
+    font-weight: 600;
+    font-size: 20px;
+    width: 400px;
+    padding: 15px;
+    border: 1px solid #15191d;
+    outline: none !important;
+    border-radius: 5px;
+}
+.main-area .loan-form select:focus {
+    border: 1.8px solid #15191d;
+    box-shadow: 0 1px 5px #888787, 0 -2px 5px #888787;
+}
+.main-area .loan-form input {
+    font-family: Nunito Sans;
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: .6px;
+    margin-top: 30px;
+    width: 400px;
+    padding: 8px;
+    outline: none !important;
+    border: 1px solid #15191D;
+    border-radius: 5px;
+}
+.main-area .loan-form input:focus {
+    border: 1.8px solid #15191d;
+    box-shadow: 0 1px 5px #888787, 0 -2px 5px #888787;
+}
+.main-area .loan-form #select-years {
+    margin-top: 20px;
+    padding: 8px;
+    font-size: 17px;
+}
+.main-area .loan-form #request-btn {
+    margin: 50px 0 0 80px;
+}
+.main-area .loan-form #request-btn button {
+    width: 250px;
+    padding: 8px;
+    font-family: Nunito Sans;
+    font-weight: 600;
+    font-size: 18px;
+    background: #15191d;
+    color: #FFFFFF;
+    border: 2px solid #15191d;
+    border-radius: 5px;
+    letter-spacing: .7px;
+}
+.main-area .loan-form #request-btn button:active {
+    background: #FFFFFF;
+    color: #15191D;
+}

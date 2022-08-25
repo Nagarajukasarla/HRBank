@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <p>HRBank</p>
+        </div>
+        <div class="head-txt">
+            <p>CREATE ACCOUNT</p>
+        </div>
+
+        <!-- Sign up form -->
+        <div class="signup">
+            <form action="signup.php" method="POST">
+                <div class="first-name">
+                    <input type="text" name="Firstname" id="firstName" placeholder="First name" onkeyup="validateFirstName()" required>
+                    <span id="firstNameError"></span>
+                </div>
+                <div class="last-name">
+                    <input type="text" name="Lastname" id="lastName" placeholder="Last name" onkeyup="validateLastName()" required>
+                    <span id="lastNameError"></span>
+                </div>
+                <div class="user-name">
+                    <input type="text" name="Username" id="username" placeholder="Username" onkeyup="validateUsername()" required>
+                    <span id="usernameError"></span>
+                </div>
+                <div class="email-id">
+                    <input type="email" name="Email" id="email" placeholder="example@email.com" onkeyup="validateEmail()" required>
+                    <span id="emailError"></span>
+                </div>
+                <div class="passwd">
+                    <input type="password" name="Password" id="password" placeholder="Password" onkeyup="validatePassword()" required>
+                    <span id="passwordError"></span>
+                </div>
+                <div class="retype-passwd">
+                    <input type="password" name="Confirm-password" id="retype-password" placeholder="Confirm Password" onkeyup="validateRetypePassword()" required>
+                    <span id="retypePasswordError"></span>
+                </div>
+                <div class="gender">
+                    <label for="Gender">Male : </label>
+                    <input type="radio" name="Gender" value="1" id="male">
+                    <label for="Gender">Female : </label>
+                    <input type="radio" name="Gender" value="2" id="female">
+                </div>
+                <div class="age">
+                    <select name="Age" id="select-age">
+                        <option value="Age">Age</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22 or above</option>
+                    </select>
+                </div>
+                <div class="submit-btn">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

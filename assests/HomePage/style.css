@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=Work+Sans:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    margin-bottom: 40px;
+    min-width: fit-content;
+}
+.header {
+    margin-top: 20px;
+    padding-top: 15px;
+    /* border: 1px solid #000000; */
+    width: 100%;
+    display: flex;
+    height: 60px;
+    user-select: none;
+}
+.header .logo {
+    margin-left: 40px;
+    font-family: Nunito Sans;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+}
+.nav {
+    position: absolute;
+    right: 20px;
+    display: flex;
+}
+.login {
+    margin-top: -5px;
+    margin-right: 45px;
+}
+.nav button {       /* Applies for both buttons*/
+    cursor: pointer;
+    padding: 8px 0;
+    letter-spacing: .7px;
+    width: 80px;
+    color: #FFFFFF;
+    font-family: Nunito Sans;
+    font-weight: 600;
+    font-size: 16px;
+    border: 1px solid #315ACA;
+    background: #315ACA;
+    border-radius: 3px;
+    box-shadow: 1px 2px 4px #919191, -1px -1px 4px #919191;
+    transition: .15s;
+}
+.nav .login button:active {
+    background-color: #FFFFFF;
+    color: #315ACA;
+}
+.nav .create button {
+    padding: 7px 0;
+    margin-top: -5px;
+    margin-right: 20px;
+    width: 150px;
+    border: 2px solid #E68290;
+    background: #E68290;
+}
+.nav .create button:active {
+    background-color: #FFFFFF;
+    color: #E68290;
+}
+
+
+/* Main area */
+
+.main {
+    width: fit-content;
+    font-family: Nunito Sans;
+    display: flex;
+    /* border: 1px solid #000000; */
+}
+.welcome {
+    margin-top: 70px;
+    margin-left: 40px;
+    color: #2D2D2D;
+    user-select: none;
+    z-index: 1;
+}
+.welcome p:nth-of-type(1) {
+    font-size: 35px;
+    font-weight: 700;
+}
+.welcome p:nth-of-type(2) {
+    margin-left: 3px;
+    font-size: 22px;
+}
+.welcome p:nth-of-type(3) {
+    margin-left: 3px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.welcome button {
+    margin: 22px 0 0 5px;
+    width: 180px;
+    padding: 10px 0;
+    font-family: Nunito Sans;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 19px;
+    border: 2px solid #E68290;
+    background: #E68290;
+    color: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 1px 2px 4px #919191, -1px -1px 4px #919191;
+    cursor: pointer;
+}
+.welcome button:active {
+    background: #FFFFFF;
+    color: #E68290;
+    box-shadow: 1px 2px 4px #E68290, -1px -1px 4px #E68290;
+}
+
+.main .banner {
+    margin-left: -10px;
+    margin-right: 5px;
+    user-select: none;
+}
+.main .banner img {
+    position: relative;
+    left: -100px;
+    z-index: -1;
+}
+.wrap .line {
+    margin-left: 120px;
+    margin-bottom: 10px;
+    background: #B1BAFE;
+    width: 1250px;
+    height: 1.5px;
+}
+.wrap .card-section {
+    display: flex;
+}
+.card-section .card {
+    user-select: none;
+    display: flex;
+    margin-top: 50px;
+    margin-left: 150px;
+    background: #010348;
+    height: 280px;
+    width: 500px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 20px #1D1C1C, -2px -4px 20px #1d1c1c;
+}
+.card-section .card .chip {
+    width: 90px;
+    height: 80px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.card-section .card .visa {
+    width: 100px;
+    height: 40px;
+    margin-left: 260px;
+    margin-top: 20px;
+}
+.card-section .card p:nth-of-type(1) {
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    font-family: Work Sans;
+    margin-left: -420px;
+    margin-top: 130px;
+    font-size: 30px;
+}
+.card-section .card p:nth-of-type(2) {
+    color: #FFFFFF;
+    font-family: Work Sans;
+    margin-left: -320px;
+    margin-top: 185px;
+    font-size: 20px;
+}
+.card-section .card p:nth-of-type(2) sm {
+    font-size: 16px;
+}
+.card-section .card p:nth-of-type(3) {
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    font-family: Work Sans;
+    margin-left: -180px;
+    margin-top: 225px;
+    font-size: 20px;
+}
+.card-section .card p:nth-of-type(4) {
+    color: #FFFFFF;
+    font-family: Work Sans;
+    margin-left: 180px;
+    margin-top: 245px;
+    font-size: 16px;
+}
+.card-section .card-content {
+    margin-top: 90px;
+    margin-left: 100px;
+    font-family: Nunito Sans;
+    user-select: none;
+}
+.card-section .card-content p {
+    font-size: 25px;
+}
+.card-section .card-content button {
+    margin-top: 30px;
+    font-size: 20px;
+    background: #315ACA;
+    color: #FFFFFF;
+    border: 1.3px solid #315ACA;
+    width: 120px;
+    padding: 8px 0;
+    border-radius: 5px;
+    box-shadow: 1px 2px 4px #919191, -1px -1px 4px #919191;
+    transition: .2s;
+}
+.card-section .card-content button:active {
+    background: #FFFFFF;
+    color: #315ACA;
+    box-shadow: 1px 2px 4px #315ACA, -1px -1px 4px #315ACA;
+}
+.wrap .line1 {
+    margin-top: 50px;
+    margin-left: 120px;
+    margin-bottom: 10px;
+    background: #B1BAFE;
+    width: 1250px;
+    height: 1.5px;
+}
+.wrap .loan-wrap {
+    background-color: #FEFEFE;
+}
+.wrap .loan-head {
+    margin-top: 30px;
+}
+.wrap .loan-head p:nth-of-type(1) {
+    margin-left: 700px;
+    font-family: Nunito Sans;
+    font-size: 30px;
+    font-weight: 700;
+}
+.wrap .loan-wrap .loan-head p:nth-of-type(2) {
+    margin-left: 530px;
+    margin-top: 10px;
+    font-family: Nunito Sans;
+    font-size: 23px;
+    font-weight: 400;
+}
+.loan-wrap .loans {
+    user-select: none;
+    margin-top: 50px;
+    display: flex;
+}
+.loan-wrap .loans .home-loan {
+    margin-left: 150px;
+    margin-right: 20px;
+    background: #FAFAFA;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    box-shadow: -5px -5px 8px #FFFFFF, 5px 8px 10px #BFBFBF
+}
+.bike-loan, .gold-loan, .education-loan {
+    margin-left: 60px;
+    margin-right: 20px;
+    background: #FAFAFA;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    box-shadow: -5px -5px 8px #FFFFFF, 5px 8px 10px #BFBFBF
+}
+.loan-wrap .loans img {
+    margin: 30px 0 0 85px;
+}
+.loan-wrap .loans p {
+    margin-top: 10px;
+    margin-left: 30px;
+    font-family: Nunito Sans;
+    font-size: 16px;
+}
+.loan-wrap .loans .bike-loan p {
+    margin-left: 40px;
+}
+.loan-wrap .loans .bike-loan p mv {
+    margin-left: 35px;
+}
+.loan-wrap .loans .gold-loan p {
+    margin-left: 35px;
+}
+.loan-wrap .loans .gold-loan p mv{
+    margin-left: 40px;
+}
+.loan-wrap .loans .education-loan p {
+    margin-left: 50px;
+}
+.loan-wrap .loans .education-loan p mv {
+    margin-left: 15px;
+}
+.loan-wrap .loans .home-loan p mv {
+    margin-left: 20px;
+}
+.loan-wrap .loans button {
+    width: 120px;
+    padding: 4px 0;
+    margin: 25px 0 0 70px;
+    background-color: #010348;
+    border: 1px solid #010348;
+    border-radius: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+    box-shadow: 1px 2px 4px #919191, -1px -1px 4px #919191;
+}
+.loan-wrap .loans button:active {
+    background: #FFFFFF;
+    color: #010348;
+    box-shadow: 1px 2px 4px #010348, -1px -1px 4px #010348;
+}
+.wrap .line2 {
+    margin-top: 80px;
+    margin-left: 120px;
+    margin-bottom: 10px;
+    background: #B1BAFE;
+    width: 1250px;
+    height: 1.5px;
+}
+.wrap .contact {
+    margin-top: 30px;
+    display: flex;
+    margin-left: 600px;
+}
+.wrap .contact .phone {
+    margin-right: 50px;
+    display: flex;
+}
+.wrap .contact .mail {
+    display: flex;
+}
+.wrap .contact p {
+    margin-left: 10px;
+}

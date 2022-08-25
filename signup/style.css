@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=Work+Sans:wght@300;400&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #F1F1F1;
+    min-width: fit-content;
+    user-select: none;
+}
+.wrap .header {
+    background-color: #315ACA;
+    text-align: center;
+    width: 100%;
+    padding: 30px 0;
+    box-shadow: 0.5px 2px 16px #000000;
+}
+.wrap .header p {
+    font-family: Nunito Sans;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+}
+.wrap .head-txt {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Josefin Sans;
+    font-weight: 600;
+}
+
+.signup input {
+    width: 300px;
+    position: relative;
+    padding: 10px 0 10px 5px;
+    letter-spacing: .5px;
+    font-family: Nunito Sans;
+    font-weight: 600;
+    font-size: 16px;
+    border: 1.4px solid #315ACA;
+}
+
+.signup input:focus {
+    outline: none !important;
+    border: 2px solid #315ACA;
+    box-shadow: 1px 1px 2px #708bd6, -1px -1px 2px #708bd6;
+}
+.signup div {
+    position: relative;
+    width: fit-content;
+    /* background-color: red; */
+}
+.signup .first-name {
+    top: 35px;
+    left: 400px;
+}
+.signup .last-name {
+    left: 800px;
+    top: -10px;
+}
+.signup .user-name {
+    left: 400px;
+    top: 25px;
+}
+.signup .email-id {
+    left: 800px;
+    top: -20px;
+}
+.signup .passwd {
+    left: 400px;
+    top: 20px;
+}
+.signup .retype-passwd {
+    left: 800px;
+    top: -25px;
+}
+.signup .gender {
+    margin-top: 20px;
+    margin-left: 500px;
+}
+.signup .gender label {
+    margin-right: 30px;
+    font-family: Nunito Sans; 
+    font-size: 18px;
+    font-weight: 600;
+}
+.signup .gender label:nth-of-type(2) {
+    margin-left: 80px;
+}
+.signup .gender input {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    top: 3px;
+}
+.signup .gender input:focus {
+    box-shadow: none !important;
+}
+.signup .age {
+    background-color: rebeccapurple;
+    left: 900px;
+    top: -22px;
+}
+.signup .age select {
+    margin-top: -20px;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    padding: 6px;
+    width: 120px;
+    outline: none;
+    border: 1px solid #315ACA;
+}
+.signup .age select:focus {
+    box-shadow: 1px 1px 2px #708bd6, -1px -1px 2px #708bd6;
+
+}
+.signup .submit-btn {
+    position: relative;
+    left: 700px;
+    top: 30px;
+}
+.signup button {
+    width: 130px;
+    padding: 10px 0;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    letter-spacing: .4px;
+    font-weight: 600;
+    background-color: #010348;
+    border: 1px solid #010348;
+    color: #FFFFFF;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: .2s;
+}
+.signup button:active {
+    background-color: #FFFFFF;
+    color: #010348;
+    box-shadow: 1px 1px 2px #010348, -1px -1px 2px #010348;
+}
+.signup span {
+    position: relative;
+    left: -35px;
+    top: 5px;
+}
