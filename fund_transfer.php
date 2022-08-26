@@ -3,12 +3,12 @@
 include_once "connection.php";
 
 session_start();
-$id = $_SESSION['id'];
-$email = $_SESSION['email'];
-$username = $_SESSION['username'];
-$firstName = $_SESSION['firstname'];
-$accountNumber = $_SESSION['accountNumber'];
-$lastName = $_SESSION['lastname'];
+$id = isset($_SESSION['id']) ? $_SESSION['id'] : 0;
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+$firstName = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : '';
+$accountNumber = isset($_SESSION['accountNumber']) ? $_SESSION['accountNumber'] : 0;
+$lastName = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
 
 ?>
 
@@ -82,7 +82,7 @@ $lastName = $_SESSION['lastname'];
         <div class="transfer-area">
             <div class="send">
                 <p>SEND</p>
-                <form action="">
+                <form action="" method="POST">
                     <div class="acc-number">
                         <input type="text" name="accountNumber" id="account-number" placeholder="Enter Account Number" required>
                     </div>
@@ -93,8 +93,25 @@ $lastName = $_SESSION['lastname'];
                         <input type="text" name="amount" id="amount" placeholder="Enter Amount" required>
                     </div>
                     <div class="send-btn">
-                        <button type="submit">Transfer</button>
+                        <button type="submit" name="transfer-btn">Transfer</button>
                     </div>
+
+                    <?php 
+                        if (isset($_POST['transfer-btn'])) {
+                            $currentAccount = filter_input(INPUT_POST, "accountNumber", FILTER_VALIDATE_INT);
+                            $amount = filter_input(INPUT_POST, "amount", FILTER_VALIDATE_INT);
+                            $result = mysqli_query($conn, "SELECT AccountNumber FROM user_info");
+                            if ($result) {
+                                while ($row = mysqli_fetch_array($result)) {
+                                    if ($row['AccountNumber'] == $currentAccount) {
+                                        // Account exist
+                                        $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = 1234 WHERE AccountNumber == $currentAccount");
+                                    }
+                                }
+                            }
+                        }
+                    ?>
+
                 </form>
             </div>
             <div class="receive">
