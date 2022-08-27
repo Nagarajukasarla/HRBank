@@ -223,4 +223,51 @@ form button:active {
 }
 .receive-details #my-name {
     margin-left: 85px;
-} 
+}
+.popUp {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -10%;
+    left: 50%;
+    transform: scale(0.1);
+    width: 300px;
+    height: 300px;
+    background: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: -2px -4px 15px #716f6f, 2px 5px 15px #716f6f;
+    visibility: hidden;
+}
+.showPop {
+    top: 40%;
+    transform: scale(1);
+    visibility: visible;
+}
+.popUp img {
+    position: absolute;
+    top: 35px;
+    left: 39%;
+}
+.popUp p {
+    font-family: Nunito Sans;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .4px;
+}
+.popUp button {
+    position: absolute;
+    left: 100px;
+    top: 210px;
+    width: 100px;
+    padding: 8px 0;
+    font-family: Nunito Sans;
+    font-size: 17px;
+    background: royalblue;
+    color: #FFFFFF;
+    outline: none;
+    border: 1px solid royalblue;
+    border-radius: 5px;
+    letter-spacing: .6px;
+    cursor: pointer;
+}

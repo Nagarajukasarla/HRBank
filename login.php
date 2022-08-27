@@ -6,7 +6,7 @@ session_start();
 $emailId = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT Id, Firstname, Lastname, Username, AccountNumber, Password, Email FROM user_info";
+$sql = "SELECT Id, Firstname, Lastname, Username, AccountNumber, Password, Email, Balance FROM user_info";
 
 $userId = NULL;
 
@@ -25,6 +25,7 @@ if ($result) {
             $_SESSION['firstname'] = $row['Firstname'];
             $_SESSION['lastname'] = $row['Lastname'];
             $_SESSION['accountNumber'] = $row['AccountNumber'];
+            $_SESSION['balance'] = $row['Balance'];
         }
     }
     if ($userId != NULL) {

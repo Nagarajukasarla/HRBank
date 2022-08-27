@@ -8,14 +8,10 @@ $username = $_SESSION['username'];
 $firstName = $_SESSION['firstname'];
 $lastName = $_SESSION['lastname'];
 $accountNumber = $_SESSION['accountNumber'];
+$balance = $_SESSION['balance'];
 
-$sql = "SELECT Balance FROM user_info WHERE Id = $id";
-
-$balanceRes = mysqli_query($conn, $sql);
-$balance = NULL;
-
-$balance = mysqli_fetch_column($balanceRes);    // Works on 8 and above versions of php
-
+// fetching balance before creating session variable
+// $balance = mysqli_fetch_column($balanceRes);    // Works on 8 and above versions of php
 // ------------------ For version below 8 ---------------
 // while ($row = mysqli_fetch_array($balanceRes)) {
 //     $balance = $row[0];

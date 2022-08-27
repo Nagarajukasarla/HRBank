@@ -9,6 +9,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $firstName = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : '';
 $accountNumber = isset($_SESSION['accountNumber']) ? $_SESSION['accountNumber'] : 0;
 $lastName = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
+$balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
 
 ?>
 
@@ -80,6 +81,11 @@ $lastName = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
             </a>
         </div>
         <div class="transfer-area">
+            <div class="popUp">
+                <img src="img/warning2.png">
+                <p>You have Insufficient balance</p>
+                <button id="ok-btn">OK</button>
+            </div>
             <div class="send">
                 <p>SEND</p>
                 <form action="" method="POST">
@@ -96,20 +102,21 @@ $lastName = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
                         <button type="submit" name="transfer-btn">Transfer</button>
                     </div>
 
-                    <?php 
-                        if (isset($_POST['transfer-btn'])) {
-                            $currentAccount = filter_input(INPUT_POST, "accountNumber", FILTER_VALIDATE_INT);
-                            $amount = filter_input(INPUT_POST, "amount", FILTER_VALIDATE_INT);
+                    <?php
+                    if (isset($_POST['transfer-btn'])) {
+                        $currentAccount = filter_input(INPUT_POST, "accountNumber", FILTER_VALIDATE_INT);
+                        $amount = filter_input(INPUT_POST, "amount", FILTER_VALIDATE_INT);
+                        if ($balance >= $amount) {
                             $result = mysqli_query($conn, "SELECT AccountNumber FROM user_info");
                             if ($result) {
                                 while ($row = mysqli_fetch_array($result)) {
                                     if ($row['AccountNumber'] == $currentAccount) {
-                                        // Account exist
-                                        $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = 1234 WHERE AccountNumber == $currentAccount");
+                                        $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = $amount WHERE AccountNumber = $currentAccount");
                                     }
                                 }
                             }
                         }
+                    }
                     ?>
 
                 </form>
