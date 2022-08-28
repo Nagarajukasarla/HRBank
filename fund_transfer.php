@@ -10,7 +10,7 @@ $firstName = isset($_SESSION['firstname']) ? $_SESSION['firstname'] : '';
 $accountNumber = isset($_SESSION['accountNumber']) ? $_SESSION['accountNumber'] : 0;
 $lastName = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
 $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
-
+$balanceStatus = 1;
 ?>
 
 
@@ -37,7 +37,7 @@ $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
         </div>
     </div>
     <div class="floating-profile">
-        <img id="close-profile" src=" Img/close.png" alt="close" width="20px" height="20px">
+        <img id="close-profile" src="Img/close.png" alt="close" width="20px" height="20px">
         <p>100</p>
         <?php echo "<p>$firstName</p>"; ?>
         <?php echo "<p>$accountNumber</p>"; ?>
@@ -81,14 +81,14 @@ $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
             </a>
         </div>
         <div class="transfer-area">
-            <div class="popUp">
+            <div class="hidden-popup popup">
                 <img src="img/warning2.png">
                 <p>You have Insufficient balance</p>
                 <button id="ok-btn">OK</button>
             </div>
             <div class="send">
                 <p>SEND</p>
-                <form action="" method="POST">
+                <form action="" method="GET">
                     <div class="acc-number">
                         <input type="text" name="accountNumber" id="account-number" placeholder="Enter Account Number" required>
                     </div>
@@ -99,13 +99,13 @@ $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
                         <input type="text" name="amount" id="amount" placeholder="Enter Amount" required>
                     </div>
                     <div class="send-btn">
-                        <button type="submit" name="transfer-btn">Transfer</button>
+                        <button type="submit" id="transfer-btn" name="transfer-btn">Transfer</button>
                     </div>
 
                     <?php
-                    if (isset($_POST['transfer-btn'])) {
-                        $currentAccount = filter_input(INPUT_POST, "accountNumber", FILTER_VALIDATE_INT);
-                        $amount = filter_input(INPUT_POST, "amount", FILTER_VALIDATE_INT);
+                    if (isset($_GET['transfer-btn'])) {
+                        $currentAccount = filter_input(INPUT_GET, "accountNumber", FILTER_VALIDATE_INT);
+                        $amount = filter_input(INPUT_GET, "amount", FILTER_VALIDATE_INT);
                         if ($balance >= $amount) {
                             $result = mysqli_query($conn, "SELECT AccountNumber FROM user_info");
                             if ($result) {
@@ -115,10 +115,13 @@ $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
                                     }
                                 }
                             }
+                        } else {
+                            $balanceStatus = 2;
+                            echo '';
                         }
                     }
                     ?>
-
+                    <input type="hidden" value="<?= htmlspecialchars($balanceStatus) ?>">
                 </form>
             </div>
             <div class="receive">
@@ -139,5 +142,4 @@ $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
     </div>
 </body>
 <script src="assests/FundTransfer/main.js"></script>
-
 </html>
