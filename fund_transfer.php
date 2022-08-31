@@ -11,6 +11,9 @@ $accountNumber = isset($_SESSION['accountNumber']) ? $_SESSION['accountNumber'] 
 $lastName = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
 $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
 $balanceStatus = 1;
+$userStatus = 1;
+$isAccountNumberExist = false;
+
 ?>
 
 
@@ -81,10 +84,15 @@ $balanceStatus = 1;
             </a>
         </div>
         <div class="transfer-area">
-            <div class="hidden-popup popup">
+            <div class="balance-hidden-popup balance-popup">
                 <img src="img/warning2.png">
                 <p>You have Insufficient balance</p>
                 <button id="ok-btn">OK</button>
+            </div>
+            <div class="user-not-exits-hidden-popup not-exist-popup">
+                <img src="img/cross.png">
+                <p>User Not Exist</p>
+                <button id="ok-btn-2">OK</button>
             </div>
             <div class="send">
                 <p>SEND</p>
@@ -106,22 +114,31 @@ $balanceStatus = 1;
                     if (isset($_GET['transfer-btn'])) {
                         $currentAccount = filter_input(INPUT_GET, "accountNumber", FILTER_VALIDATE_INT);
                         $amount = filter_input(INPUT_GET, "amount", FILTER_VALIDATE_INT);
-                        if ($balance >= $amount) {
+                        if ($balance >= $amount && $accountNumber != $currentAccount) {
                             $result = mysqli_query($conn, "SELECT AccountNumber FROM user_info");
                             if ($result) {
                                 while ($row = mysqli_fetch_array($result)) {
                                     if ($row['AccountNumber'] == $currentAccount) {
+                                        $isAccountNumberExist = true;
                                         $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = $amount WHERE AccountNumber = $currentAccount");
+                                        // If updation query not work in future, handle here 
                                     }
                                 }
+                                if (!$isAccountNumberExist) {
+                                    // TODO 
+                                    // Show popup regarding no user exits..
+                                    $userStatus = 2;
+                                    // written style and script for nonvalidaccount
+                                }
                             }
-                        } else {
+                        }
+                        else {
                             $balanceStatus = 2;
-                            echo '';
                         }
                     }
                     ?>
                     <input type="hidden" value="<?= htmlspecialchars($balanceStatus) ?>">
+                    <div class="user-status"><input type="hidden"value="<?= htmlspecialchars($userStatus) ?>"></div>
                 </form>
             </div>
             <div class="receive">
