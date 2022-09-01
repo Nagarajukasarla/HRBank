@@ -25,9 +25,10 @@
     $Gender = filter_input(INPUT_POST, "Gender", FILTER_VALIDATE_INT);
     $Age = filter_input(INPUT_POST, "Age", FILTER_VALIDATE_INT);
     $AccountNumber = rand(9999999, 99999999);
+    $Balance = 500;
 
-    $sql = "INSERT INTO user_info (Firstname, Lastname, Username, Email, Password, ConfirmPassword, Gender, Age, AccountNumber)
-            VALUES ('$Firstname', '$Lastname', '$Username', '$Email', '$Password', '$ConfirmPassword', $Gender, $Age, $AccountNumber)";
+    $sql = "INSERT INTO user_info (Firstname, Lastname, Username, Email, Password, ConfirmPassword, Gender, Age, AccountNumber, Balance)
+            VALUES ('$Firstname', '$Lastname', '$Username', '$Email', '$Password', '$ConfirmPassword', $Gender, $Age, $AccountNumber, $Balance)";
 
     $result = mysqli_query($conn, $sql);
 
