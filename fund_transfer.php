@@ -85,18 +85,18 @@ $isAccountNumberExist = false;
         </div>
         <div class="transfer-area">
             <div class="balance-hidden-popup balance-popup">
-                <img src="img/warning2.png">
+                <img src="Img/warning2.png">
                 <p>You have Insufficient balance</p>
                 <button id="ok-btn">OK</button>
             </div>
             <div class="user-not-exits-hidden-popup not-exist-popup">
-                <img src="img/cross.png">
+                <img src="Img/cross.png">
                 <p>User Not Exist</p>
                 <button id="ok-btn-2">OK</button>
             </div>
             <div class="send">
                 <p>SEND</p>
-                <form action="" method="GET">
+                <form action="" method="POST">
                     <div class="acc-number">
                         <input type="text" name="accountNumber" id="account-number" placeholder="Enter Account Number" required>
                     </div>
@@ -111,9 +111,9 @@ $isAccountNumberExist = false;
                     </div>
 
                     <?php
-                    if (isset($_GET['transfer-btn'])) {
-                        $currentAccount = filter_input(INPUT_GET, "accountNumber", FILTER_VALIDATE_INT);
-                        $amount = filter_input(INPUT_GET, "amount", FILTER_VALIDATE_INT);
+                    if (isset($_POST['transfer-btn'])) {
+                        $currentAccount = filter_input(INPUT_POST, "accountNumber", FILTER_VALIDATE_INT);
+                        $amount = filter_input(INPUT_POST, "amount", FILTER_VALIDATE_INT);
                         if ($balance >= $amount && $accountNumber != $currentAccount) {
                             $result = mysqli_query($conn, "SELECT AccountNumber FROM user_info");
                             if ($result) {
@@ -121,11 +121,11 @@ $isAccountNumberExist = false;
                                     if ($row['AccountNumber'] == $currentAccount) {
                                         $isAccountNumberExist = true;
                                         $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = $amount WHERE AccountNumber = $currentAccount");
-                                        // If updation query not work in future, handle here 
+                                        // If updation query not work in future, handle here
                                     }
                                 }
                                 if (!$isAccountNumberExist) {
-                                    // TODO 
+                                    // TODO
                                     // Show popup regarding no user exits..
                                     $userStatus = 2;
                                     // written style and script for nonvalidaccount

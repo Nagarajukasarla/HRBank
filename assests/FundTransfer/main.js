@@ -22,7 +22,7 @@ if (balanceStatus == 2) {
     popUp.classList.add('balance-visible-popup')
     popUp.classList.remove('balance-hidden-popup')
 }
-else if (userStatus == 2) {
+if (userStatus == 2) {
     inValidUserPopup.classList.add('user-not-exits-visible-popup')
     inValidUserPopup.classList.remove('user-not-exits-hidden-popup')
 }
