@@ -185,6 +185,9 @@ body {
     height: 46px;
     box-shadow: 0 2px 5px #888787, 0 2px 5px #FFFFFF;
 }
+.transaction-list table tr th {
+    padding: 10px 60px 10px 20px;
+}
 .transaction-list table tbody td {
     padding: 10px 53px;
 }

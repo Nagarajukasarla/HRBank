@@ -112,28 +112,24 @@ $isAccountNumberExist = false;
 
                     <?php
                     if (isset($_POST['transfer-btn'])) {
-                        $currentAccount = filter_input(INPUT_POST, "accountNumber", FILTER_VALIDATE_INT);
+                        $tragetAccount = filter_input(INPUT_POST, "accountNumber", FILTER_VALIDATE_INT);
                         $amount = filter_input(INPUT_POST, "amount", FILTER_VALIDATE_INT);
-                        if ($balance >= $amount && $accountNumber != $currentAccount) {
+                        if ($balance >= $amount && $accountNumber != $tragetAccount) {
                             $result = mysqli_query($conn, "SELECT AccountNumber FROM user_info");
                             if ($result) {
                                 while ($row = mysqli_fetch_array($result)) {
-                                    if ($row['AccountNumber'] == $currentAccount) {
+                                    if ($row['AccountNumber'] == $tragetAccount) {
                                         $isAccountNumberExist = true;
-                                        $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = $amount WHERE AccountNumber = $currentAccount");
-                                        // If updation query not work in future, handle here
+                                        $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = $amount WHERE AccountNumber = $tragetAccount");
                                     }
                                 }
                                 if (!$isAccountNumberExist) {
-                                    // TODO
-                                    // Show popup regarding no user exits..
-                                    $userStatus = 2;
-                                    // written style and script for nonvalidaccount
+                                    $userStatus = 2; // AccountNumber not exits
                                 }
                             }
                         }
                         else {
-                            $balanceStatus = 2;
+                            $balanceStatus = 2; // Insufficent balance
                         }
                     }
                     ?>

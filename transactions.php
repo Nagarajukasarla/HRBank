@@ -1,19 +1,20 @@
 <?php
 
-    include_once "connection.php";
+include_once "connection.php";
 
-    session_start();
-    $id = $_SESSION['id'];
-    $email = $_SESSION['email'];
-    $userName = $_SESSION['username'];
-    $firstName = $_SESSION['firstname'];
-    $accountNumber = $_SESSION['accountNumber'];
+session_start();
+$id = $_SESSION['id'];
+$email = $_SESSION['email'];
+$userName = $_SESSION['username'];
+$firstName = $_SESSION['firstname'];
+$accountNumber = $_SESSION['accountNumber'];
 ?>
 
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +22,7 @@
     <title>Transactions</title>
     <link rel="stylesheet" href="assests/Transactions/style.css">
 </head>
+
 <body>
     <div class="header">
         <div class="bank-logo">
@@ -80,8 +82,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Nominee</th>
-                        <th>Type</th>
+                        <th>Action</th>
                         <th>Date</th>
                         <th>Amount</th>
                         <th>Balance</th>
@@ -89,127 +90,109 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b style="color : #FF0000">Sent to </b>54333434</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b style="color: #009900">Recevied from </b>54333434</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Rama Krishna</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Rama Krishna</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Rama Krishna</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Rama Krishna</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Recived from </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Recived from </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Sent to </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Recived from </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
                     </tr>
                     <tr>
-                        <td>Naga Raju</td>
-                        <td>Credited</td>
+                        <td><b>Recived from </b>Naga Raju</td>
                         <td>01/09/2025</td>
                         <td>90999</td>
                         <td>909999099.99</td>
@@ -220,4 +203,5 @@
     </div>
 </body>
 <script src="assests/Transactions/main.js"></script>
+
 </html>

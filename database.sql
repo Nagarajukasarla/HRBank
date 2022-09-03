@@ -14,3 +14,12 @@ CREATE TABLE user_info (
     Balance INT NOT NULL,
     PRIMARY KEY (Id)
 );
+
+
+CREATE TABLE transactions (
+    SenderAccountNumber INT NOT NULL,
+    ReceiverAccountNumber INT NOT NULL,
+    TransactionDate DATE NOT NULL,
+    TransactionTime TIME NOT NULL,
+    Amount INT NOT NULL
+);
