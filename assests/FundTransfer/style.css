@@ -224,7 +224,7 @@ form button:active {
 .receive-details #my-name {
     margin-left: 85px;
 }
-.balance-hidden-popup, .user-not-exits-hidden-popup {
+.balance-hidden-popup, .user-not-exits-hidden-popup, .transaction-success-hidden-popup{
     position: fixed;
     display: flex;
     align-items: center;
@@ -240,18 +240,18 @@ form button:active {
     visibility: hidden;
     transition: transform 0.4s, top 0.4s;
 }
-.balance-popup img, .not-exist-popup img {
+.balance-popup img, .not-exist-popup img, .transaction-success-popup img {
     position: absolute;
     top: 35px;
     left: 39%;
 }
-.balance-popup p, .not-exist-popup p {
+.balance-popup p, .not-exist-popup p, .transaction-success-popup p {
     font-family: Nunito Sans;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: .4px;
 }
-.balance-popup button, .not-exist-popup button {
+.balance-popup button, .not-exist-popup button, .transaction-success-popup button {
     position: absolute;
     left: 100px;
     top: 210px;
@@ -267,7 +267,7 @@ form button:active {
     letter-spacing: .6px;
     cursor: pointer;
 }
-.balance-visible-popup, .user-not-exits-visible-popup {
+.balance-visible-popup, .user-not-exits-visible-popup, .transaction-success-visible-popup {
     top: 40%;
     transform: scale(1);
     visibility: visible;

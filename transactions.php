@@ -8,7 +8,16 @@ $email = $_SESSION['email'];
 $userName = $_SESSION['username'];
 $firstName = $_SESSION['firstname'];
 $accountNumber = $_SESSION['accountNumber'];
+
+$transactionsList = mysqli_query($conn, "SELECT * FROM transactions");
+
+if ($transactionsList) {
+    while ($row = mysqli_fetch_array($transactionsList)) {
+        
+    }
+}
 ?>
+
 
 
 

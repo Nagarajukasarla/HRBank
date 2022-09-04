@@ -17,9 +17,11 @@ CREATE TABLE user_info (
 
 
 CREATE TABLE transactions (
+    Id INT AUTO_INCREMENT NOT NULL,
     SenderAccountNumber INT NOT NULL,
     ReceiverAccountNumber INT NOT NULL,
     TransactionDate DATE NOT NULL,
     TransactionTime TIME NOT NULL,
-    Amount INT NOT NULL
+    Amount INT NOT NULL,
+    PRIMARY KEY (Id)
 );

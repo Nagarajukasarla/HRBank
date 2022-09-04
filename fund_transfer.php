@@ -12,6 +12,7 @@ $lastName = isset($_SESSION['lastname']) ? $_SESSION['lastname'] : '';
 $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
 $balanceStatus = 1;
 $userStatus = 1;
+$transactionStatus = 1;
 $isAccountNumberExist = false;
 
 ?>
@@ -94,6 +95,11 @@ $isAccountNumberExist = false;
                 <p>User Not Exist</p>
                 <button id="ok-btn-2">OK</button>
             </div>
+            <div class="transaction-success-hidden-popup transaction-success-popup">
+                <img src="Img/successOkay.png" width="65px" height="65px">
+                <p>Successfully Transferd</p>
+                <button id="ok-btn-3">OK</button>
+            </div>
             <div class="send">
                 <p>SEND</p>
                 <form action="" method="POST">
@@ -120,21 +126,32 @@ $isAccountNumberExist = false;
                                 while ($row = mysqli_fetch_array($result)) {
                                     if ($row['AccountNumber'] == $tragetAccount) {
                                         $isAccountNumberExist = true;
-                                        $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = $amount WHERE AccountNumber = $tragetAccount");
                                     }
                                 }
-                                if (!$isAccountNumberExist) {
+                                if ($isAccountNumberExist) {
+                                    $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = (Balance + $amount) WHERE AccountNumber = $tragetAccount");
+                                    $updateSenderBalance = mysqli_query($conn, "UPDATE user_info SET Balance = Balance - $amount WHERE AccountNumber = $accountNumber");
+                                    $date = new DateTime();
+                                    $timeZone = $date->getTimezone();
+                                    $currentTimeZone = date_default_timezone_set($timeZone->getName());
+                                    $currentDate = date("d-m-y");
+                                    $currentTime = date("H:i:s");
+                                    $setDetails = mysqli_query($conn, "INSERT INTO transactions (SenderAccountNumber, ReceiverAccountNumber, TransactionDate, TransactionTime, Amount)
+                                    VALUES ($accountNumber, $tragetAccount, '$currentDate', '$currentTime', $amount)");
+                                    $transactionStatus = 2;
+
+                                } else {
                                     $userStatus = 2; // AccountNumber not exits
                                 }
                             }
-                        }
-                        else {
+                        } else {
                             $balanceStatus = 2; // Insufficent balance
                         }
                     }
                     ?>
                     <input type="hidden" value="<?= htmlspecialchars($balanceStatus) ?>">
-                    <div class="user-status"><input type="hidden"value="<?= htmlspecialchars($userStatus) ?>"></div>
+                    <div class="user-status"><input type="hidden" value="<?= htmlspecialchars($userStatus) ?>"></div>
+                    <div class="transaction-status"><input type="hidden" value="<?= htmlspecialchars($transactionStatus) ?>"></div>
                 </form>
             </div>
             <div class="receive">

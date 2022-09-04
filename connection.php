@@ -10,5 +10,4 @@
     if (mysqli_connect_errno()) {
         die ("Connection Error: " . mysqli_connect_error());
     }
-
 ?>
