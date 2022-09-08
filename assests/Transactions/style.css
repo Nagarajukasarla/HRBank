@@ -148,20 +148,19 @@ body {
 .transaction-list {
     background-color: #FFFFFF;
     margin: 20px 0 0 40px;
+    position: relative;
+    bottom: 10px;
     width: 1010px;
-    height: 600px;
     border-radius: 10px;
     box-shadow: 3px 3px 20px #888787, -3px -3px 20px #FFFFFF;
-    overflow: hidden;
-    overflow-y: scroll;
 }
 .transaction-list p {
     margin-top: 25px;
     margin-left: 35px;
     margin-bottom: 12px;
     font-family: Nunito Sans;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     letter-spacing: .4px;
 }
 .transaction-list table {
@@ -176,8 +175,11 @@ body {
     text-transform: uppercase;
     box-shadow: 0 2px 5px #888787, 0 2px 5px #FFFFFF;
 }
-.transaction-list table tbody {
+.transaction-list .table-body {
+    position: relative;
+    height: 490px;
     overflow: hidden;
+    overflow-y: scroll;
 }
 .transaction-list table tbody tr {
     font-family: Work Sans;
@@ -185,9 +187,23 @@ body {
     height: 46px;
     box-shadow: 0 2px 5px #888787, 0 2px 5px #FFFFFF;
 }
+
 .transaction-list table tr th {
-    padding: 10px 60px 10px 20px;
+    position: absolute;
 }
+.transaction-list table tr th:nth-of-type(1) {
+    padding: 10px 0 10px 90px;
+}
+.transaction-list table tr th:nth-of-type(2) {
+    padding: 10px 0 10px 380px;
+}
+.transaction-list table tr th:nth-of-type(3) {
+    padding: 10px 0 10px 590px;
+}
+.transaction-list table tr th:nth-of-type(4) {
+    padding: 10px 0 10px 815px;
+}
+
 .transaction-list table tbody td {
     padding: 10px 53px;
 }

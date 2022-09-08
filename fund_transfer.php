@@ -1,6 +1,7 @@
 <?php
 
 include_once "connection.php";
+include_once "library.php";
 
 session_start();
 $id = isset($_SESSION['id']) ? $_SESSION['id'] : 0;
@@ -129,15 +130,17 @@ $isAccountNumberExist = false;
                                     }
                                 }
                                 if ($isAccountNumberExist) {
-                                    $updateBalance = mysqli_query($conn, "UPDATE user_info SET Balance = (Balance + $amount) WHERE AccountNumber = $tragetAccount");
-                                    $updateSenderBalance = mysqli_query($conn, "UPDATE user_info SET Balance = Balance - $amount WHERE AccountNumber = $accountNumber");
+                                    $updatedReceiverBalanceStatus = mysqli_query($conn, "UPDATE user_info SET Balance = (Balance + $amount) WHERE AccountNumber = $tragetAccount");
+                                    $updatedSenderBalanceStatus = mysqli_query($conn, "UPDATE user_info SET Balance = Balance - $amount WHERE AccountNumber = $accountNumber");
                                     $date = new DateTime();
                                     $timeZone = $date->getTimezone();
                                     $currentTimeZone = date_default_timezone_set($timeZone->getName());
                                     $currentDate = date("d-m-y");
                                     $currentTime = date("H:i:s");
-                                    $setDetails = mysqli_query($conn, "INSERT INTO transactions (SenderAccountNumber, ReceiverAccountNumber, TransactionDate, TransactionTime, Amount)
-                                    VALUES ($accountNumber, $tragetAccount, '$currentDate', '$currentTime', $amount)");
+                                    $updatedSenderBalance = fetchBalance($conn, $accountNumber);
+                                    $updatedReceiverBalance = fetchBalance($conn, $tragetAccount);
+                                    $setDetails = mysqli_query($conn, "INSERT INTO transactions (SenderAccountNumber, ReceiverAccountNumber, TransactionDate, TransactionTime, Amount, SenderBalance, ReceiverBalance)
+                                    VALUES ($accountNumber, $tragetAccount, '$currentDate', '$currentTime', $amount, $updatedSenderBalance, $updatedReceiverBalance)");
                                     $transactionStatus = 2;
 
                                 } else {

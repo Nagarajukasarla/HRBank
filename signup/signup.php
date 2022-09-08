@@ -1,7 +1,12 @@
 <?php
 
     // Database Connection details
-    include_once "connection.php";
+    $db_host = "localhost";
+    $db_username = "root";
+    $db_password = "";
+    $db_name = "user_details";
+
+    $conn = mysqli_connect($db_host, $db_username, $db_password, $db_name);
 
 
     if (mysqli_connect_errno()) {

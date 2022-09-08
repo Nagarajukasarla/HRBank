@@ -11,9 +11,22 @@ $accountNumber = $_SESSION['accountNumber'];
 
 $transactionsList = mysqli_query($conn, "SELECT * FROM transactions");
 
+$senderAccountNumber = null;
+$reciverAccountNumber = null;
+$transactionDate = null;
+$transactionTime = null;
+$amount = null;
+$updatedBalance = null;
+
 if ($transactionsList) {
     while ($row = mysqli_fetch_array($transactionsList)) {
-        
+        $senderAccountNumber = $row['SenderAccountNumber'];
+        $receiverAccountNumber = $row['ReceiverAccountNumber'];
+        $transactionDate = $row['TransactionDate'];
+        $transactionTime = $row['TransactionTime'];
+        $amount = $row['Amount'];
+        $senderBalance = $row['SenderBalance'];
+        $ReceiverBalance = $row['ReceiverBalance'];
     }
 }
 ?>
@@ -87,6 +100,7 @@ if ($transactionsList) {
             </a>
         </div>
         <div class="transaction-list">
+
             <p>Transactions</p>
             <table>
                 <thead>
@@ -97,117 +111,30 @@ if ($transactionsList) {
                         <th>Balance</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><b style="color : #FF0000">Sent to </b>54333434</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b style="color: #009900">Recevied from </b>54333434</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Rama Krishna</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Rama Krishna</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Recived from </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Recived from </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Sent to </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Recived from </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                    <tr>
-                        <td><b>Recived from </b>Naga Raju</td>
-                        <td>01/09/2025</td>
-                        <td>90999</td>
-                        <td>909999099.99</td>
-                    </tr>
-                </tbody>
             </table>
+            <div class="table-body">
+                <table>
+                    <tbody>
+                        <?php
+                        $tableLength = mysqli_num_rows($transactionsList);
+                        $transactionTableList = mysqli_fetch_array($transactionsList);
+                        for ($i = 0; $i < $tableLength; $i++) {
+                            echo '<tr>';
+                            if ($senderAccountNumber == $accountNumber) {
+                                echo "<td><b style='color : #FF0000'>Sent to </b>$receiverAccountNumber</td>";
+                            }
+                            if ($receiverAccountNumber == $accountNumber) {
+                                echo "<td><b style='color : #FF0000'>Recived from </b> $senderAccountNumber</td>";
+                            }
+                            echo "<td>$transactionDate</td>";
+                            echo "<td>$amount</td>";
+                            echo "<td>909999099.99</td>";
+                            echo '</tr>';
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
