@@ -117,20 +117,36 @@ if ($transactionsList) {
                     <tbody>
                         <?php
                         $tableLength = mysqli_num_rows($transactionsList);
-                        $transactionTableList = mysqli_fetch_array($transactionsList);
-                        for ($i = 0; $i < $tableLength; $i++) {
-                            echo '<tr>';
-                            if ($senderAccountNumber == $accountNumber) {
-                                echo "<td><b style='color : #FF0000'>Sent to </b>$receiverAccountNumber</td>";
+                        if ($transactionsList) {
+                            while ($row = mysqli_fetch_array($transactionsList)) {
+                                echo '<tr>';
+                                if ($senderAccountNumber == $accountNumber) {
+                                    $tempNumber = $row['ReceiverAccountNumber'];
+                                    echo "<td><b style='color :#FF0000'>Sent to </br>$tempNumber iop</td>";
+                                }
+                                else if ($receiverAccountNumber == $accountNumber) {
+                                    echo "<td><b style='color : #FF0000'>Recived from </b>$senderAccountNumber iop</td>";
+                                }
+                                echo "<td>$transactionDate</td>";
+                                echo "<td>$amount</td>";
+                                echo "<td>909999099.99</td>";
+                                echo '</tr>';
                             }
-                            if ($receiverAccountNumber == $accountNumber) {
-                                echo "<td><b style='color : #FF0000'>Recived from </b> $senderAccountNumber</td>";
-                            }
-                            echo "<td>$transactionDate</td>";
-                            echo "<td>$amount</td>";
-                            echo "<td>909999099.99</td>";
-                            echo '</tr>';
                         }
+                        
+                        // for ($i = 0; $i < $tableLength; $i++) {
+                        //     echo '<tr>';
+                        //     if ($senderAccountNumber == $accountNumber) {
+                        //         echo "<td><b style='color : #FF0000'>Sent to </b>$receiverAccountNumber</td>";
+                        //     }
+                        //     if ($receiverAccountNumber == $accountNumber) {
+                        //         echo "<td><b style='color : #FF0000'>Recived from </b> $senderAccountNumber</td>";
+                        //     }
+                        //     echo "<td>$transactionDate</td>";
+                        //     echo "<td>$amount</td>";
+                        //     echo "<td>909999099.99</td>";
+                        //     echo '</tr>';
+                        // }
                         ?>
                     </tbody>
                 </table>
