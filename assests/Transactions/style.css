@@ -205,5 +205,5 @@ body {
 }
 
 .transaction-list table tbody td {
-    padding: 10px 53px;
+    position: absolute;
 }

@@ -17,18 +17,8 @@ $transactionDate = null;
 $transactionTime = null;
 $amount = null;
 $updatedBalance = null;
+$data = array();
 
-if ($transactionsList) {
-    while ($row = mysqli_fetch_array($transactionsList)) {
-        $senderAccountNumber = $row['SenderAccountNumber'];
-        $receiverAccountNumber = $row['ReceiverAccountNumber'];
-        $transactionDate = $row['TransactionDate'];
-        $transactionTime = $row['TransactionTime'];
-        $amount = $row['Amount'];
-        $senderBalance = $row['SenderBalance'];
-        $ReceiverBalance = $row['ReceiverBalance'];
-    }
-}
 ?>
 
 
@@ -100,7 +90,6 @@ if ($transactionsList) {
             </a>
         </div>
         <div class="transaction-list">
-
             <p>Transactions</p>
             <table>
                 <thead>
@@ -119,34 +108,36 @@ if ($transactionsList) {
                         $tableLength = mysqli_num_rows($transactionsList);
                         if ($transactionsList) {
                             while ($row = mysqli_fetch_array($transactionsList)) {
-                                echo '<tr>';
+                                $senderAccountNumber = $row['SenderAccountNumber'];
+                                $receiverAccountNumber = $row['ReceiverAccountNumber'];
+                                $transactionDate = $row['TransactionDate'];
+                                $transactionTime = $row['TransactionTime'];
+                                $amount = $row['Amount'];
+                                $senderBalance = $row['SenderBalance'];
+                                $ReceiverBalance = $row['ReceiverBalance'];
+                                $actionWithNumber = "";
+
                                 if ($senderAccountNumber == $accountNumber) {
-                                    $tempNumber = $row['ReceiverAccountNumber'];
-                                    echo "<td><b style='color :#FF0000'>Sent to </br>$tempNumber iop</td>";
+                                    $actionWithNumber = "<b style='color:#FF0000'>Sent to&nbsp;&nbsp</b>" . $receiverAccountNumber;
+                                    $currentBalance = $senderBalance;
                                 }
-                                else if ($receiverAccountNumber == $accountNumber) {
-                                    echo "<td><b style='color : #FF0000'>Recived from </b>$senderAccountNumber iop</td>";
+                                else {
+                                    $actionWithNumber = "<b style='color:#008000'>Received from&nbsp;&nbsp</b>" . $senderAccountNumber;
+                                    $currentBalance = $ReceiverBalance;
                                 }
-                                echo "<td>$transactionDate</td>";
-                                echo "<td>$amount</td>";
-                                echo "<td>909999099.99</td>";
-                                echo '</tr>';
+                                echo "
+                                <tr>
+                                    <td style='padding: 10px 0 10px 60px;'>$actionWithNumber</td>
+                                    <td style='padding: 10px 0 10px 370px;'>$transactionDate</td>
+                                    <td style='padding: 10px 0 10px 605px;'>$amount</td>
+                                    <td style='padding: 10px 0 10px 825px;'>$currentBalance</td>
+                                </tr>
+                                ";
                             }
                         }
-                        
-                        // for ($i = 0; $i < $tableLength; $i++) {
-                        //     echo '<tr>';
-                        //     if ($senderAccountNumber == $accountNumber) {
-                        //         echo "<td><b style='color : #FF0000'>Sent to </b>$receiverAccountNumber</td>";
-                        //     }
-                        //     if ($receiverAccountNumber == $accountNumber) {
-                        //         echo "<td><b style='color : #FF0000'>Recived from </b> $senderAccountNumber</td>";
-                        //     }
-                        //     echo "<td>$transactionDate</td>";
-                        //     echo "<td>$amount</td>";
-                        //     echo "<td>909999099.99</td>";
-                        //     echo '</tr>';
-                        // }
+                        else {
+                            // Handle Design for No records found 
+                        }
                         ?>
                     </tbody>
                 </table>
