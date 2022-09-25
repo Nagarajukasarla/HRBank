@@ -127,7 +127,7 @@ $data = array();
                                 }
                                 echo "
                                 <tr>
-                                    <td style='padding: 10px 0 10px 60px;'>$actionWithNumber</td>
+                                    <td style='padding: 10px 0 10px 60px;'>$actionWithNumber </td>
                                     <td style='padding: 10px 0 10px 370px;'>$transactionDate</td>
                                     <td style='padding: 10px 0 10px 605px;'>$amount</td>
                                     <td style='padding: 10px 0 10px 825px;'>$currentBalance</td>
