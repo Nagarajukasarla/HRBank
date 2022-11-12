@@ -25,3 +25,9 @@ CREATE TABLE transactions (
     Amount INT NOT NULL,
     PRIMARY KEY (Id)
 );
+
+
+
+CREATE TABLE Employee (
+    
+);

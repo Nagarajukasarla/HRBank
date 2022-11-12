@@ -189,21 +189,29 @@ body {
 }
 
 .transaction-list table tr th {
-    position: absolute;
+    
 }
 .transaction-list table tr th:nth-of-type(1) {
-    padding: 10px 0 10px 90px;
+
 }
 .transaction-list table tr th:nth-of-type(2) {
-    padding: 10px 0 10px 380px;
+    
 }
 .transaction-list table tr th:nth-of-type(3) {
-    padding: 10px 0 10px 590px;
+    
 }
 .transaction-list table tr th:nth-of-type(4) {
-    padding: 10px 0 10px 815px;
+    
 }
 
 .transaction-list table tbody td {
-    position: absolute;
+    
+}
+
+.more-info-div {
+    cursor: pointer;
+}
+.more-info-div img {
+    border: 1px solid #000000;
+    cursor: pointer;
 }

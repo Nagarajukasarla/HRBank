@@ -127,10 +127,10 @@ $data = array();
                                 }
                                 echo "
                                 <tr>
-                                    <td style='padding: 10px 0 10px 60px;'>$actionWithNumber </td>
-                                    <td style='padding: 10px 0 10px 370px;'>$transactionDate</td>
-                                    <td style='padding: 10px 0 10px 605px;'>$amount</td>
-                                    <td style='padding: 10px 0 10px 825px;'>$currentBalance</td>
+                                    <td>$actionWithNumber <span class='more-info-div'><img src='Img/more-info.png' width=25 height=25px style='position:relative;top:5px;'></span></td>
+                                    <td>$transactionDate</td>
+                                    <td>$amount</td>
+                                    <td>$currentBalance</td>
                                 </tr>
                                 ";
                             }

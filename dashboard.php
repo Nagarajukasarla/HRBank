@@ -1,5 +1,6 @@
 <?php
 include_once "connection.php";
+include_once "library.php";
 
 session_start();
 $id = $_SESSION['id'];
@@ -8,7 +9,7 @@ $username = $_SESSION['username'];
 $firstName = $_SESSION['firstname'];
 $lastName = $_SESSION['lastname'];
 $accountNumber = $_SESSION['accountNumber'];
-$balance = $_SESSION['balance'];
+$balance = fetchBalance($conn, $accountNumber);
 
 // fetching balance before creating session variable
 // $balance = mysqli_fetch_column($balanceRes);    // Works on 8 and above versions of php
@@ -165,5 +166,4 @@ $balance = $_SESSION['balance'];
     </div>
 </body>
 <script src='assests/Dashboard/main.js'></script>
-
 </html>
