@@ -9,3 +9,14 @@ function fetchBalance($conn, $accountNumber) {
     }
     return $balance;
 }
+// function createAccountNumber ($conn) {
+//     $accountNumber = rand (9999999, 99999999);
+//     $result = mysqli_query($conn, "SELECT id FROM user_info WHERE AccountNumber = $accountNumber");
+//     if ($result) {
+//         $accountNumber = ;
+//         createAccountNumber($conn, $accountNumber);
+//     }
+//     else {
+//         return $accountNumber;
+//     }
+// }

@@ -1,5 +1,7 @@
 <?php
 
+    include_once "../library.php";
+
     // Database Connection details
     $db_host = "localhost";
     $db_username = "root";
@@ -26,19 +28,16 @@
     $AccountNumber = rand(9999999, 99999999);
     $Balance = 500;
 
-    $isAccountNumberExist = mysqli_query($conn, "SELECT id FROM user_info WHERE AccountNumber = $AccountNumber");
-    $isEmailExist = mysqli_query($conn, "SELECT id FROM user_info WHERE Email = '$Email'");
-    $isUsernameExist = mysqli_query($conn, "SELECT id FROM user_info WHERE Username = '$Username'");
+    // $isAccountNumberExist = mysqli_query($conn, "SELECT id FROM user_info WHERE AccountNumber = $AccountNumber");
+    // $isEmailExist = mysqli_query($conn, "SELECT id FROM user_info WHERE Email = '$Email'");
+    // $isUsernameExist = mysqli_query($conn, "SELECT id FROM user_info WHERE Username = '$Username'");
 
-    while ($isAccountNumberExist) {
-        $AccountNumber = rand(9999999, 99999999);
-    }
-    if ($isEmailExist) {
-        // show popup that email already exist and please login
-    }
-    else if ($isUsernameExist) {
-        // show popup that username already exist please choose another
-    }
+    // if ($isEmailExist) {
+    //     // show popup that email already exist and please login
+    // }
+    // else if ($isUsernameExist) {
+    //     // show popup that username already exist please choose another
+    // }
 
     $sql = "INSERT INTO user_info (Firstname, Lastname, Username, Email, Password, ConfirmPassword, Gender, Age, AccountNumber, Balance)
             VALUES ('$Firstname', '$Lastname', '$Username', '$Email', '$Password', '$ConfirmPassword', $Gender, $Age, $AccountNumber, $Balance)";

@@ -127,6 +127,7 @@ $isAccountNumberExist = false;
                                 while ($row = mysqli_fetch_array($result)) {
                                     if ($row['AccountNumber'] == $tragetAccount) {
                                         $isAccountNumberExist = true;
+                                        break;
                                     }
                                 }
                                 if ($isAccountNumberExist) {
