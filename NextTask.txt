@@ -1,8 +1,0 @@
-TO DO in HRBank Project after ECET :
-
-Transactions
--> Transfering fund from one account to another keep track on that fund-transfer and showing transaction details in Transactions list table
-
-Loans
-
--> Requesting loans
