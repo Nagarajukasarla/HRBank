@@ -142,6 +142,7 @@ $isAccountNumberExist = false;
                                     $updatedReceiverBalance = fetchBalance($conn, $tragetAccount);
                                     $setDetails = mysqli_query($conn, "INSERT INTO transactions (SenderAccountNumber, ReceiverAccountNumber, TransactionDate, TransactionTime, Amount, SenderBalance, ReceiverBalance)
                                     VALUES ($accountNumber, $tragetAccount, '$currentDate', '$currentTime', $amount, $updatedSenderBalance, $updatedReceiverBalance)");
+                                    echo $setDetails;
                                     $transactionStatus = 2;
 
                                 } else {
