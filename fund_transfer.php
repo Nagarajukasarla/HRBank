@@ -14,8 +14,6 @@ $balance = isset($_SESSION['balance']) ? $_SESSION['balance'] : 0;
 $balanceStatus = 1;
 $userStatus = 1;
 $transactionStatus = 1;
-$isAccountNumberExist = false;
-
 ?>
 
 
@@ -118,21 +116,16 @@ $isAccountNumberExist = false;
                     </div>
 
                     <?php
-                    if (isset($_POST['transfer-btn'])) {
+                    if (isset($_POST['transfer-btn'])) {  // after user clicks on send button
                         $tragetAccount = filter_input(INPUT_POST, "accountNumber", FILTER_VALIDATE_INT);
                         $amount = filter_input(INPUT_POST, "amount", FILTER_VALIDATE_INT);
-                        if ($balance >= $amount && $accountNumber != $tragetAccount) {
-                            $result = mysqli_query($conn, "SELECT AccountNumber FROM user_info");
+                        if ($balance >= $amount) {  // checking whether amount is lesser or not
+                            $result = mysqli_query($conn, "SELECT id FROM user_info WHERE AccountNumber = $tragetAccount");
                             if ($result) {
-                                while ($row = mysqli_fetch_array($result)) {
-                                    if ($row['AccountNumber'] == $tragetAccount) {
-                                        $isAccountNumberExist = true;
-                                        break;
-                                    }
-                                }
-                                if ($isAccountNumberExist) {
+                                // Updating balance of both sender and reciver
                                     $updatedReceiverBalanceStatus = mysqli_query($conn, "UPDATE user_info SET Balance = (Balance + $amount) WHERE AccountNumber = $tragetAccount");
                                     $updatedSenderBalanceStatus = mysqli_query($conn, "UPDATE user_info SET Balance = Balance - $amount WHERE AccountNumber = $accountNumber");
+
                                     $date = new DateTime();
                                     $timeZone = $date->getTimezone();
                                     $currentTimeZone = date_default_timezone_set($timeZone->getName());
@@ -144,10 +137,8 @@ $isAccountNumberExist = false;
                                     VALUES ($accountNumber, $tragetAccount, '$currentDate', '$currentTime', $amount, $updatedSenderBalance, $updatedReceiverBalance)");
                                     echo $setDetails;
                                     $transactionStatus = 2;
-
-                                } else {
-                                    $userStatus = 2; // AccountNumber not exits
-                                }
+                            } else {
+                                $userStatus = 2; // AccountNumber not exits
                             }
                         } else {
                             $balanceStatus = 2; // Insufficent balance
