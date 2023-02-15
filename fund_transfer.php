@@ -121,8 +121,9 @@ $transactionStatus = 1;
                         $amount = filter_input(INPUT_POST, "amount", FILTER_VALIDATE_INT);
                         if ($balance >= $amount) {  // checking whether amount is lesser or not
                             $result = mysqli_query($conn, "SELECT id FROM user_info WHERE AccountNumber = $tragetAccount");
-                            if ($result) {
-                                // Updating balance of both sender and reciver
+                            if ($tragetAccount != $accountNumber) {
+                                if ($result) {
+                                    // Updating balance of both sender and reciver
                                     $updatedReceiverBalanceStatus = mysqli_query($conn, "UPDATE user_info SET Balance = (Balance + $amount) WHERE AccountNumber = $tragetAccount");
                                     $updatedSenderBalanceStatus = mysqli_query($conn, "UPDATE user_info SET Balance = Balance - $amount WHERE AccountNumber = $accountNumber");
 
@@ -133,14 +134,34 @@ $transactionStatus = 1;
                                     $currentTime = date("H:i:s");
                                     $updatedSenderBalance = fetchBalance($conn, $accountNumber);
                                     $updatedReceiverBalance = fetchBalance($conn, $tragetAccount);
-                                    $setDetails = mysqli_query($conn, "INSERT INTO transactions (SenderAccountNumber, ReceiverAccountNumber, TransactionDate, TransactionTime, Amount, SenderBalance, ReceiverBalance)
-                                    VALUES ($accountNumber, $tragetAccount, '$currentDate', '$currentTime', $amount, $updatedSenderBalance, $updatedReceiverBalance)");
+
+                                    $setDetails = mysqli_query($conn, "INSERT INTO transactions (
+                                        SenderAccountNumber, 
+                                        ReceiverAccountNumber, 
+                                        TransactionDate,
+                                        TransactionTime, 
+                                        Amount, 
+                                        SenderBalance, 
+                                        ReceiverBalance)
+                                        VALUES (
+                                            $accountNumber, 
+                                            $tragetAccount, 
+                                            '$currentDate', 
+                                            '$currentTime', 
+                                            $amount, 
+                                            $updatedSenderBalance, 
+                                            $updatedReceiverBalance
+                                        )
+                                    ");
                                     echo $setDetails;
                                     $transactionStatus = 2;
-                            } else {
+                                }
+                            }
+                            else {
                                 $userStatus = 2; // AccountNumber not exits
                             }
-                        } else {
+                        }
+                        else {
                             $balanceStatus = 2; // Insufficent balance
                         }
                     }
