@@ -20,9 +20,3 @@ function fetchBalance($conn, $accountNumber) {
 //         return $accountNumber;
 //     }
 // }
-
-function getDate() {
-    date_default_timezone_set("Asia/Kolkata");
-    $currentDate = date("d-m-y");
-    $currentTime = date("H:i:s");
-}

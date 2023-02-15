@@ -91,53 +91,50 @@ $data = array();
         </div>
         <div class="transaction-list">
             <p>Transactions</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Action</th>
-                        <th>Date</th>
-                        <th>Amount</th>
-                        <th>Balance</th>
-                    </tr>
-                </thead>
-            </table>
             <div class="table-body">
                 <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php
-                        $tableLength = mysqli_num_rows($transactionsList);
-                        if ($transactionsList) {
-                            while ($row = mysqli_fetch_array($transactionsList)) {
-                                $senderAccountNumber = $row['SenderAccountNumber'];
-                                $receiverAccountNumber = $row['ReceiverAccountNumber'];
-                                $transactionDate = $row['TransactionDate'];
-                                $transactionTime = $row['TransactionTime'];
-                                $amount = $row['Amount'];
-                                $senderBalance = $row['SenderBalance'];
-                                $ReceiverBalance = $row['ReceiverBalance'];
-                                $actionWithNumber = "";
+                            $tableLength = mysqli_num_rows($transactionsList);
+                            if ($transactionsList) {
+                                while ($row = mysqli_fetch_array($transactionsList)) {
+                                    $senderAccountNumber = $row['SenderAccountNumber'];
+                                    $receiverAccountNumber = $row['ReceiverAccountNumber'];
+                                    $transactionDate = $row['TransactionDate'];
+                                    $transactionTime = $row['TransactionTime'];
+                                    $amount = $row['Amount'];
+                                    $senderBalance = $row['SenderBalance'];
+                                    $ReceiverBalance = $row['ReceiverBalance'];
+                                    $actionWithNumber = "";
 
-                                if ($senderAccountNumber == $accountNumber) {
-                                    $actionWithNumber = "<b style='color:#FF0000'>Sent to&nbsp;&nbsp</b>" . $receiverAccountNumber;
-                                    $currentBalance = $senderBalance;
+                                    if ($senderAccountNumber == $accountNumber) {
+                                        $actionWithNumber = "<b style='color:#FF0000'>Sent to&nbsp;&nbsp</b>" . $receiverAccountNumber;
+                                        $currentBalance = $senderBalance;
+                                    } else {
+                                        $actionWithNumber = "<b style='color:#008000'>Received from&nbsp;&nbsp</b>" . $senderAccountNumber;
+                                        $currentBalance = $ReceiverBalance;
+                                    }
+                                    echo "
+                                        <tr>
+                                            <td>$actionWithNumber <span class='more-info-div'><img src='Img/more-info.png' width=25 height=25px style='position:relative;top:5px;'></span></td>
+                                            <td>$transactionDate</td>
+                                            <td>$amount</td>
+                                            <td>$currentBalance</td>
+                                        </tr>
+                                        ";
                                 }
-                                else {
-                                    $actionWithNumber = "<b style='color:#008000'>Received from&nbsp;&nbsp</b>" . $senderAccountNumber;
-                                    $currentBalance = $ReceiverBalance;
-                                }
-                                echo "
-                                <tr>
-                                    <td>$actionWithNumber <span class='more-info-div'><img src='Img/more-info.png' width=25 height=25px style='position:relative;top:5px;'></span></td>
-                                    <td>$transactionDate</td>
-                                    <td>$amount</td>
-                                    <td>$currentBalance</td>
-                                </tr>
-                                ";
                             }
-                        }
-                        else {
-                            // Handle Design for No records found 
-                        }
+                            else {
+                                // Handle Design for No records found 
+                            }
                         ?>
                     </tbody>
                 </table>

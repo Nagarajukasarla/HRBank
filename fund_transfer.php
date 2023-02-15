@@ -127,8 +127,10 @@ $transactionStatus = 1;
                                     $updatedReceiverBalanceStatus = mysqli_query($conn, "UPDATE user_info SET Balance = (Balance + $amount) WHERE AccountNumber = $tragetAccount");
                                     $updatedSenderBalanceStatus = mysqli_query($conn, "UPDATE user_info SET Balance = Balance - $amount WHERE AccountNumber = $accountNumber");
 
-                                    date_default_timezone_set("Asia/Kolkata");
-                                    $currentDate = date("d-m-y");
+                                    $date = new DateTime();
+                                    $timeZone = $date->getTimezone();
+                                    $currentTimeZone = date_default_timezone_set($timeZone->getName());
+                                    $currentDate = date("y-m-d");
                                     $currentTime = date("H:i:s");
                                     $updatedSenderBalance = fetchBalance($conn, $accountNumber);
                                     $updatedReceiverBalance = fetchBalance($conn, $tragetAccount);
