@@ -8,6 +8,6 @@
     $conn = mysqli_connect($host, $username, $password, $db_name);
 
     if (mysqli_connect_errno()) {
-        die ("Connection Error: trustme" . mysqli_connect_error());
+        die ("Connection Error: " . mysqli_connect_error());
     }
 ?>
