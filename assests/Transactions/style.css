@@ -199,6 +199,6 @@ body {
     cursor: pointer;
 }
 .more-info-div img {
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     cursor: pointer;
 }
