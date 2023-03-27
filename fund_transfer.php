@@ -153,7 +153,6 @@ $transactionStatus = 1;
                                             $updatedReceiverBalance
                                         )
                                     ");
-                                    echo $setDetails;
                                     $transactionStatus = 2;
                                 }
                             }

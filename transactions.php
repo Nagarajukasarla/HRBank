@@ -1,6 +1,8 @@
 <?php
 
 include_once "connection.php";
+include_once "library.php";
+include_once "utilClasses/transactionClass.php";
 
 session_start();
 $id = $_SESSION['id'];
@@ -8,9 +10,6 @@ $email = $_SESSION['email'];
 $userName = $_SESSION['username'];
 $firstName = $_SESSION['firstname'];
 $accountNumber = $_SESSION['accountNumber'];
-
-$transactionsList = mysqli_query($conn, "SELECT * FROM transactions");
-
 $senderAccountNumber = null;
 $reciverAccountNumber = null;
 $transactionDate = null;
@@ -18,6 +17,7 @@ $transactionTime = null;
 $amount = null;
 $updatedBalance = null;
 $data = array();
+$T = new Transaction();
 
 ?>
 
@@ -103,9 +103,9 @@ $data = array();
                     </thead>
                     <tbody>
                         <?php
-                            $tableLength = mysqli_num_rows($transactionsList);
-                            if ($transactionsList) {
-                                while ($row = mysqli_fetch_array($transactionsList)) {
+                            $fetchUserTransactions = mysqli_query($conn, $T->fetchTransactions($accountNumber));
+                            if ($fetchUserTransactions) {
+                                while ($row = mysqli_fetch_array($fetchUserTransactions)) {
                                     $senderAccountNumber = $row['SenderAccountNumber'];
                                     $receiverAccountNumber = $row['ReceiverAccountNumber'];
                                     $transactionDate = $row['TransactionDate'];
